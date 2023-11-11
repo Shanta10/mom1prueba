@@ -1,8 +1,8 @@
-package com.example.proyecto.controller
+package com.example.demo.controller
 
-import com.example.proyecto.model.Conference
-import com.example.proyecto.model.Assistant
-import com.example.proyecto.service.AssistantService
+import com.example.demo.model.Conference
+import com.example.demo.model.Assistant
+import com.example.demo.service.AssistantService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

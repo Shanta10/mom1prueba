@@ -1,9 +1,9 @@
-package com.example.proyecto.service
+package com.example.demo.service
 
-import com.example.proyecto.model.Conference
-import com.example.proyecto.model.Assistant
-import com.example.proyecto.repository.ConferenceRepository
-import com.example.proyecto.repository.AssistantRepository
+import com.example.demo.model.Conference
+import com.example.demo.model.Assistant
+import com.example.demo.repository.ConferenceRepository
+import com.example.demo.repository.AssistantRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -20,9 +20,22 @@ class AssistantService {
     }
     fun save(assistant: Assistant): Assistant {
         try {
-            assistantRepository.findById(assistant.conferenceId)
-                ?: throw Exception("Id del cliente no encontrada")
+            conferenceRepository.findById(assistant.conferenceId)
+                ?: throw Exception("Id de la conferencia no encontrada")
+            //El objeto debe estar verificado.
+            assistant.nameassistant?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Nombre no debe ser vacio")
+            assistant.roleassistant?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Rol no debe ser vacio")
+            assistant.ageassistant?.let {
+                if (it <= 0) {
+                    throw Exception("La edad debe ser un valor entero positivo")
+                }
+            } ?: throw Exception("La edad no debe ser nula")
+
+
             return assistantRepository.save(assistant)
+
         }catch (ex : Exception){
             throw ResponseStatusException(
                 HttpStatus.NOT_FOUND, ex.message, ex)

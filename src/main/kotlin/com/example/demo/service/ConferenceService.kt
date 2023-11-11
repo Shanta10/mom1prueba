@@ -1,7 +1,7 @@
-package com.example.proyecto.service
+package com.example.demo.service
 
-import com.example.proyecto.model.Conference
-import com.example.proyecto.repository.ConferenceRepository
+import com.example.demo.model.Conference
+import com.example.demo.repository.ConferenceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

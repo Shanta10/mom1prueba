@@ -1,7 +1,7 @@
-package com.example.proyecto.controller
+package com.example.demo.controller
 
-import com.example.proyecto.model.Conference
-import com.example.proyecto.service.ConferenceService
+import com.example.demo.model.Conference
+import com.example.demo.service.ConferenceService
 import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
